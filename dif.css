@@ -1,0 +1,60 @@
+.cuerpo {display: block;margin: 10px;background-color: #f7f7f7;border: 1px solid #ccc;border-radius: 10px;padding: 0px;}
+body {
+    background-color: #E1A5A5;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    padding: 2px;
+    text-align: center;
+    display: block;
+}
+
+.titulo {
+    color: #2f4f7f;
+}
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+#contenido {
+    padding: 20px;
+    text-align: center; font-size: larger;
+}
+
+.log {
+    width: 50px;
+    height: 50px;
+    text-align: left;
+}
+
+.con {
+    width: 800px;
+    height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Alinea las imágenes en el centro */
+    align-items: center;
+    gap: 10px;
+    background-color: #f7f7f7;
+    margin: 0 auto; /* Centrar el contenedor en la página */
+    padding: 20px;
+}
+
+.lig {
+    width: 200px; /* Ajustar tamaño de las imágenes */
+    height: 150px;
+    border: 1px solid #CCCCCC; /* Borde gris claro */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para el efecto visual */
+    transition: transform 0.2s ease-in-out; /* Efecto al pasar el mouse */
+}
+
+.lig:hover {
+    transform: scale(1.05); /* Hace que la imagen crezca un poco al pasar el mouse */
+}
