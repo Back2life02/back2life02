@@ -34,10 +34,3 @@ nextBtn.addEventListener("click", () => {
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) lightbox.style.display = "none";
 });
-const toggleBtn = document.getElementById("menu-toggle");
-const menu = document.getElementById("menu");
-
-toggleBtn.addEventListener("click", () => {
-  menu.classList.toggle("active");
-  toggleBtn.classList.toggle("is-active"); // activa la animación hamburguesa
-});

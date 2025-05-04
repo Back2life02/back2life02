@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Galería</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="">
+  <a class="prev">&#10094;</a>
+  <a class="next">&#10095;</a>
+</div>
+
 <body>
 
 <header>
@@ -72,7 +80,7 @@
   </div>
 </footer>
 
-
+<script src="script.js"></script>
 <script>
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');
