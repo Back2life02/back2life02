@@ -1,5 +1,4 @@
-const images = document.querySelectorAll(".galeria-columna img");
-
+const images = document.querySelectorAll(".inspiraciones img");
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.querySelector(".lightbox-img");
 const closeBtn = document.querySelector(".close");
@@ -35,11 +34,11 @@ nextBtn.addEventListener("click", () => {
 lightbox.addEventListener("click", (e) => {
   if (e.target === lightbox) lightbox.style.display = "none";
 });
-
-  const inspoImages = document.querySelectorAll('.inspo-img');
+const inspoImages = document.querySelectorAll('.inspo-img');
 
   inspoImages.forEach(img => {
     img.addEventListener('click', () => {
+
       const overlay = document.createElement('div');
       overlay.style.position = 'fixed';
       overlay.style.top = 0;
@@ -61,11 +60,11 @@ lightbox.addEventListener("click", (e) => {
       enlargedImg.style.boxShadow = '0 0 25px rgba(255,255,255,0.3)';
       overlay.appendChild(enlargedImg);
 
-
       overlay.addEventListener('click', () => {
         document.body.removeChild(overlay);
       });
+
       document.body.appendChild(overlay);
     });
   });
-
+ 

@@ -6,7 +6,8 @@
   }
   
   body {
-    background-color: #f5f5f5;
+  
+    background-color: #e6e6e6;
   }
   
   .banner {
@@ -61,12 +62,15 @@
 
   .menu {
     display: flex;
+    justify-content: space-between;
+    width: 100%;
   }
   
   .menu ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    padding: 0;
   }
   
   .menu ul li a {
@@ -76,6 +80,7 @@
     color: white;
     font-size: 1em;
     transition: background 0.3s ease;
+    
   }
   
   .menu ul li a:hover {
@@ -109,6 +114,7 @@
       display: none;
       flex-direction: column;
       width: 100%;
+      align-items: center;
       background: rgba(39, 39, 37, 0.85);
     }
   
@@ -129,7 +135,57 @@
     .menu-toggle {
       display: block;
     }
+    .texto {
+      width: 100%;
+      padding: 0 15px;
+    }
+    .galeria-columna img {
+      width: 100%;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .bloque-proceso {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .bloque-proceso p {
+      max-width: 90%;
+      text-align: center;
+    }
+  
+    .imagen-circular {
+      width: 120px;
+      height: 120px;
+    }
+
+    .masonry-grid {
+      column-count: 1;
+    }
+  
+    .dibujoschidos {
+      width: 100%;
+      margin-bottom: 10px;
+      break-inside: avoid;
+    }
+  
+    .videos {
+      flex-direction: column;
+      align-items: center;
+      overflow-x: unset;
+      padding: 0 10px;
+    }
+  
+    .videos iframe {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  
   }
+  
   
 
   .contenido {
@@ -139,17 +195,21 @@
     padding: 30px;
     background: #e6e6e6;
     flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px;
   }
   
   .texto {
     flex: 3;
     text-align: justify;
+    max-width: 700px;
   }
   
   .galeria-columna {
     flex: 1;
     max-width: 300px;
     text-align: center;
+    margin-left: auto;
   }
   
   .dibujos-recientes {
@@ -383,4 +443,104 @@
 .redes-sociales a:hover {
   transform: scale(1.2);
   color: #ff66cc;
+}
+.inspiraciones {
+  padding: 40px;
+  background: #e6e6e6;
+  
+}
+
+.inspiraciones h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+.masonry-grid {
+  column-count: 3;
+  column-gap: 15px;
+}
+
+.dibujoschidos {
+  position: relative;
+  margin-bottom: 15px;
+  break-inside: avoid;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.dibujoschidos img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+.inspo-link {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 1.2em;
+  transition: background 0.3s ease;
+}
+
+.inspo-link:hover {
+  background: #ff66cc;
+}
+.texto-2 {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.texto-2 h1 {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.texto-2 p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.videos {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
+  padding-bottom: 10px;
+}
+
+.videos iframe {
+  flex: 1 1 300px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 768px) {
+  .videos {
+    flex-direction: column;
+    align-items: center;
+    overflow-x: unset;
+  }
+
+  .videos iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
 }
