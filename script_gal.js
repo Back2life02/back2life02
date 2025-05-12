@@ -6,46 +6,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let currentIndex = 0;
-    let activeLightbox = null;
+    let activeLightbox = null; 
 
     function createLightboxDOM() {
       const lightboxDiv = document.createElement('div');
-      lightboxDiv.className = 'lightbox';
-      lightboxDiv.style.display = 'none';
+      lightboxDiv.className = 'lightbox'; 
+      lightboxDiv.style.display = 'none'; 
 
       const closeBtn = document.createElement('span');
       closeBtn.className = 'close';
-      closeBtn.innerHTML = '×';
+      closeBtn.innerHTML = '×'; 
 
       const lightboxImg = document.createElement('img');
-      lightboxImg.className = 'lightbox-img'; 
+      lightboxImg.className = 'lightbox-img';
+
       const prevBtn = document.createElement('a');
       prevBtn.className = 'prev';
-      prevBtn.innerHTML = '❮';
+      prevBtn.innerHTML = '❮'; 
 
       const nextBtn = document.createElement('a');
       nextBtn.className = 'next';
-      nextBtn.innerHTML = '❯';
+      nextBtn.innerHTML = '❯'; 
 
       lightboxDiv.appendChild(closeBtn);
       lightboxDiv.appendChild(lightboxImg);
       lightboxDiv.appendChild(prevBtn);
       lightboxDiv.appendChild(nextBtn);
       
-      document.body.appendChild(lightboxDiv);
-      return { lightboxDiv, closeBtn, lightboxImg, prevBtn, nextBtn };
+      document.body.appendChild(lightboxDiv); 
+      return { lightboxDiv, closeBtn, lightboxImg, prevBtn, nextBtn }; 
     }
 
-    const dom = createLightboxDOM();
-    activeLightbox = dom.lightboxDiv;
+    const dom = createLightboxDOM(); 
+    activeLightbox = dom.lightboxDiv; 
 
     function showImage(index) {
-
+  
       currentIndex = (index + imageElements.length) % imageElements.length;
 
-      activeLightbox.style.display = "block";
-      dom.lightboxImg.src = imageElements[currentIndex].src;
-      dom.lightboxImg.alt = imageElements[currentIndex].alt || "Imagen ampliada";
+      activeLightbox.style.display = "block"; 
+      dom.lightboxImg.src = imageElements[currentIndex].src; 
+      dom.lightboxImg.alt = imageElements[currentIndex].alt || "Imagen ampliada"; 
+
 
       if (imageElements.length <= 1) {
         dom.prevBtn.style.display = "none";
@@ -56,14 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-
-
     function closeLightbox() {
-      activeLightbox.style.display = "none";
-      document.removeEventListener('keydown', handleKeydown);
+      activeLightbox.style.display = "none"; 
+      document.removeEventListener('keydown', handleKeydownLightbox); 
     }
 
-    function handleKeydown(e) {
+    function handleKeydownLightbox(e) {
       if (activeLightbox && activeLightbox.style.display === 'block') {
         if (e.key === 'ArrowLeft') {
           showImage(currentIndex - 1);
@@ -75,39 +75,40 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     
+
     imageElements.forEach((img, index) => {
       img.addEventListener("click", (e) => {
-        e.preventDefault();
-
+ 
         showImage(index); 
-        document.addEventListener('keydown', handleKeydown);
+        document.addEventListener('keydown', handleKeydownLightbox); 
       });
     });
 
-    dom.closeBtn.addEventListener("click", closeLightbox);
 
-    dom.prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
+    dom.closeBtn.addEventListener("click", closeLightbox);
+    dom.prevBtn.addEventListener("click", (e) => { 
+      e.stopPropagation(); 
       showImage(currentIndex - 1); 
     });
-
-    dom.nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
+    dom.nextBtn.addEventListener("click", (e) => { 
+      e.stopPropagation(); 
       showImage(currentIndex + 1); 
     });
 
-    activeLightbox.addEventListener("click", (e) => {
+  
+    activeLightbox.addEventListener("click", (e) => { 
       if (e.target === activeLightbox) {
         closeLightbox();
       }
     });
+  } 
+
+
+  const inspoImagesParaLightbox = document.querySelectorAll(".inspiraciones .lightbox-trigger");
+  if (inspoImagesParaLightbox.length > 0) {
+      initializeLightbox(inspoImagesParaLightbox);
+  } else {
+      console.warn("Lightbox Grande: No se encontraron imágenes con la clase '.inspiraciones .lightbox-trigger'");
   }
-
-
-  const recentImages = document.querySelectorAll(".galeria-columna .lightbox-trigger");
-  initializeLightbox(recentImages);
-
-  const inspoImages = document.querySelectorAll(".inspiraciones .lightbox-trigger");
-  initializeLightbox(inspoImages);
 
 });
