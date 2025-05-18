@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', () => {
 
+document.addEventListener('DOMContentLoaded', () => {
   function initializeLightbox(imageElements) {
+
     if (!imageElements || imageElements.length === 0) {
-      console.warn("Lightbox (Galería): No se encontraron elementos de imagen para inicializar.");
+      console.warn("Lightbox (Proceso): No se encontraron elementos de imagen para inicializar.");
       return;
     }
 
@@ -10,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeLightbox = null; 
 
     function createLightboxDOM() {
-
       const lightboxDiv = document.createElement('div');
       lightboxDiv.className = 'lightbox'; 
       lightboxDiv.style.display = 'none'; 
@@ -40,13 +40,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const dom = createLightboxDOM(); 
-    activeLightbox = dom.lightboxDiv; 
+    activeLightbox = dom.lightboxDiv;
+
 
     function showImage(index) {
       currentIndex = (index + imageElements.length) % imageElements.length;
-      const currentImageElement = imageElements[currentIndex]; 
+      const currentImageElement = imageElements[currentIndex];
 
       activeLightbox.style.display = "block"; 
+      document.body.classList.add('lightbox-activo'); 
+      
       dom.lightboxImg.src = currentImageElement.src; 
       dom.lightboxImg.alt = currentImageElement.alt || "Imagen ampliada"; 
 
@@ -59,10 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       document.addEventListener('keydown', handleKeydownLightbox);
 
-
       const dialogoId = currentImageElement.dataset.dialogoId;
       if (dialogoId) {
-        const event = new CustomEvent('lightboxImageChanged', { 
+        const event = new CustomEvent('lightboxProcesoImageChanged', { 
           detail: { 
             dialogoId: dialogoId,
             triggerElement: currentImageElement 
@@ -70,19 +72,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.dispatchEvent(event);
       }
-   
     }
 
     function closeLightbox() {
       if (activeLightbox) {
         activeLightbox.style.display = "none"; 
       }
+      document.body.classList.remove('lightbox-activo');
       document.removeEventListener('keydown', handleKeydownLightbox); 
-
-      const event = new CustomEvent('lightboxClosed');
+      
+      const event = new CustomEvent('lightboxProcesoClosed');
       document.dispatchEvent(event);
-   
     }
+
 
     function handleKeydownLightbox(e) {
       if (activeLightbox && activeLightbox.style.display === 'block') {
@@ -119,10 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } 
 
-  const inspoImagesParaLightbox = document.querySelectorAll(".inspiraciones .lightbox-trigger");
-  if (inspoImagesParaLightbox.length > 0) {
-      initializeLightbox(inspoImagesParaLightbox);
+  const procesoImagesParaLightbox = document.querySelectorAll(".proceso-dibujo-grid .lightbox-trigger");
+  if (procesoImagesParaLightbox.length > 0) {
+      initializeLightbox(procesoImagesParaLightbox);
   } else {
-      console.warn("Lightbox Grande (Galería): No se encontraron imágenes con la clase '.inspiraciones .lightbox-trigger'");
+      console.warn("Lightbox (Proceso): No se encontraron imágenes con la clase '.proceso-dibujo-grid .lightbox-trigger'");
   }
 });

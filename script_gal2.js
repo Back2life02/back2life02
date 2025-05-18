@@ -1,7 +1,12 @@
+// script_gal2.js
 document.addEventListener('DOMContentLoaded', () => {
-
   const dialogoBox = document.getElementById('gatoh');
   const textoElemento = document.getElementById('texto-dialogo');
+
+  if (!dialogoBox || !textoElemento) {
+    console.error("Elementos del diálogo (Galería) no encontrados.");
+    return;
+  }
 
   const dialogosPorImagen = {
     "inspo1": "De mis primeras practicas de dibujo y por lo tanto las mas feas jskjsk (2019)",
@@ -10,10 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     "inspo4": "Un art trade que tube y me gusto mucho (2021)",
     "inspo5": "De mis mejores dibujos hasta la fecha, puedes ver lo mucho que amo dibujar a cinderace (2022)",
     "inspo6": "Amo el coloreado de este, sigue una mini historia de otro dibujo mio (2023)",
-    "inspo7": "Me gusta pensar que son pareja jskjsk (2025)",
+    "inspo7": "Me gusta pensar que son pareja jskjsk (2025)", 
     "inspo8": "Un regalo a un streamer que vi, me gusto mucho su avatar (2025)",
     "inspo9": "Mi mejor dibujo hasta la fecha y el primero con gran inpacto en las redes sociales (2025)",
-   
   };
 
   const velocidadEscritura = 50; 
@@ -22,11 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let dialogoFijadoPorClick = false; 
 
   function escribirTexto(texto, callbackAlFinalizar, index = 0) {
-   
-    if (!textoElemento) {
-        console.error("Elemento 'texto-dialogo' no encontrado al intentar escribir.");
-        return;
-    }
+    if (!textoElemento) return;
     if (index < texto.length && dialogoActivo) { 
       textoElemento.textContent += texto[index];
       timeoutEscritura = setTimeout(() => {
@@ -41,27 +41,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function mostrarDialogo(dialogoId) {
-    if (!dialogoBox || !textoElemento) {
-        console.error("Elementos 'gatoh' o 'texto-dialogo' no encontrados al intentar mostrar diálogo.");
-        return;
-    }
+  function mostrarDialogoConId(dialogoId, fijar = false) {
+    if (!dialogoBox || !textoElemento) return;
 
-    const textoParaMostrar = dialogosPorImagen[dialogoId] || "Hmm, no tengo nada que decir sobre este dibujo en particular... ¡pero sigue siendo genial!";
-
+    const textoParaMostrar = dialogosPorImagen[dialogoId] || "Miau... No recuerdo qué decir de este.";
+    
     clearTimeout(timeoutEscritura);
     textoElemento.textContent = '';
     textoElemento.classList.remove('escritura-completa');
     
     dialogoActivo = true;
+    if (fijar) { 
+        dialogoFijadoPorClick = true;
+    }
     dialogoBox.classList.add('visible');
-    escribirTexto(textoParaMostrar, () => {
-      
-    });
+    escribirTexto(textoParaMostrar, null);
   }
 
   function ocultarDialogo() {
-    if (dialogoFijadoPorClick) return; 
+    if (dialogoFijadoPorClick && dialogoBox.classList.contains('visible')) return; 
 
     dialogoActivo = false;
     clearTimeout(timeoutEscritura); 
@@ -70,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         dialogoBox.classList.remove('visible');
     }
     
-    
     setTimeout(() => { 
-        if (!dialogoActivo && textoElemento) { 
+        if (!dialogoActivo && textoElemento && !dialogoBox.classList.contains('visible')) { 
             textoElemento.textContent = '';
             textoElemento.classList.remove('escritura-completa');
         }
@@ -80,20 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const todasLasImagenesConDialogo = document.querySelectorAll('.lightbox-trigger[data-dialogo-id]');
-  if (todasLasImagenesConDialogo.length === 0) {
-      console.warn("Diálogo Pequeño: No se encontraron imágenes con '.lightbox-trigger[data-dialogo-id]'");
-  }
-
   todasLasImagenesConDialogo.forEach(img => {
     const dialogoId = img.dataset.dialogoId;
-    if (!dialogoId) {
-        console.warn("Una imagen .lightbox-trigger no tiene el atributo data-dialogo-id:", img);
-        return; 
-    }
+    if (!dialogoId) return; 
 
     img.addEventListener('mouseenter', () => {
       if (!dialogoFijadoPorClick) { 
-        mostrarDialogo(dialogoId);
+        mostrarDialogoConId(dialogoId); 
       }
     });
 
@@ -104,22 +94,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     img.addEventListener('click', (e) => {
-      e.preventDefault(); 
-      dialogoFijadoPorClick = true; 
-      mostrarDialogo(dialogoId);
+
+      mostrarDialogoConId(dialogoId, true); 
     });
   });
-
   
   document.addEventListener('click', (e) => {
     if (dialogoFijadoPorClick) {
       const esImagenConDialogo = e.target.closest('.lightbox-trigger[data-dialogo-id]');
       const esDentroDelDialogo = e.target.closest('#gatoh');
-
-      if (!esImagenConDialogo && !esDentroDelDialogo) {
+      const esDentroDelLightbox = e.target.closest('.lightbox'); 
+      if (!esImagenConDialogo && !esDentroDelDialogo && !esDentroDelLightbox) {
         dialogoFijadoPorClick = false;
         ocultarDialogo();
       }
     }
-  }); 
-}); 
+  });
+
+ 
+  document.addEventListener('lightboxImageChanged', (e) => {
+    if (e.detail && e.detail.dialogoId) {
+      mostrarDialogoConId(e.detail.dialogoId, true); 
+    }
+  });
+
+  document.addEventListener('lightboxClosed', () => {
+
+  });
+
+});

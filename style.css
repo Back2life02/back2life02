@@ -35,7 +35,7 @@ h2 { font-size: 1.5em; }
 
 
 header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
