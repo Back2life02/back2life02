@@ -18,6 +18,7 @@
     <nav class="menu" id="menu">
       <ul>
         <li><a href="Socials.html">Proceso creativo</a></li>
+          <li><a href="tutoriales.html">Tutoriales</a></li>
         <li><a href="audi.html">Acerca de mí</a></li>
         <li><a href="gal.html">Galería</a></li>
         <li><a href="index.html">Inicio</a></li>
@@ -98,8 +99,48 @@
     <a href="https://www.tiktok.com/@cataclysm_02" target="_blank"><i class="fab fa-tiktok"></i></a>
     <a href="https://www.instagram.com/cataclysm002" target="_blank"><i class="fab fa-instagram"></i></a>
   </div>
+  <button id="open-contact-form-btn" class="contact-form-trigger-btn">
+    <i class="fas fa-envelope"></i> Envíame un Mensaje
+  </button>
 </footer>
+<div id="contact-form-modal" class="contact-modal">
+  <div class="contact-modal-content">
+    <span class="close-contact-modal" id="close-contact-modal-btn">×</span>
+    <h2>Contáctame</h2>
+    <p>Envíame un mensaje y te responderé lo antes posible.</p>
+    
+    <form id="contact-form" target="_blank" action="https://formsubmit.co/living4maya@gmail.com" method="POST">
+      <div class="form-group">
+        <label for="contact-name">Nombre Completo:</label>
+        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Tu Nombre Completo" required maxlength="100">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-email">Tu Email:</label>
+        <input type="email" id="contact-email" name="email" class="form-control" placeholder="direccion@ejemplo.com" required maxlength="150">
+        <small class="email-validation-error" style="color: red; display: none;">Por favor, introduce un email con formato válido.</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="contact-subject">Asunto:</label> 
+        <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="Asunto del mensaje" required maxlength="150">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">Tu Mensaje:</label>
+        <textarea placeholder="Escribe tu mensaje aquí..." class="form-control" id="contact-message" name="message" rows="6" required maxlength="2000"></textarea>
+        <small class="char-counter"><span id="message-char-count">0</span> / 2000 caracteres</small>
+      </div>
+      <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde tu Web!">
+      <input type="hidden" name="_template" value="box"> 
+
+
+      <button type="submit" class="submit-contact-btn">Enviar Mensaje</button>
+    </form>
+  </div>
+</div>
 <script src="vid.js"></script>
+<script src="email.js"></script> 
 <script>
   const menuToggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('menu');

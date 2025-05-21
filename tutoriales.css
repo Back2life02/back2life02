@@ -1,0 +1,319 @@
+:root {
+    --cin-bg-main: #F5E6D3;           
+    --cin-bg-content: #FFFBF2;        
+    --cin-text-main: #4A3B31;         
+    --cin-heading: #E87A3A;           
+    --accent-flame-red: #D9534F;       
+    --accent-bright-yellow: #F0D055;   
+    --accent-soft-pink: #F4C2C2;       
+    --accent-sky-blue: #A2C4E0;        
+    --highlight-text-on-dark: #FFF5E8; 
+    --white: #FFFFFF;
+    --black-transparent-heavy: rgba(50, 40, 30, 0.85); 
+    --transparent-header-bg: rgba(232, 122, 58, 0.85); 
+    --transparent-hover-bg: rgba(232, 122, 58, 0.2);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Arial', sans-serif; 
+    background-color: var(--cin-bg-main); 
+    color: var(--cin-text-main); 
+    line-height: 1.7; 
+    padding-top: 70px; 
+    position: relative;
+    overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; transition: color 0.3s ease; }
+ul { list-style: none; }
+
+h1, h2, h3, h4 { 
+    margin-bottom: 0.7em; 
+    color: var(--cin-heading); 
+    font-family: 'Trebuchet MS', sans-serif; 
+    font-weight: bold;
+    line-height: 1.3;
+}
+h1 { font-size: 2.6em; text-shadow: 1px 1px 2px rgba(0,0,0,0.1); } 
+h2 { font-size: 2em; }   
+h3 { font-size: 1.4em; color: var(--accent-flame-red); }
+
+header { 
+    position: fixed; top: 0; left: 0; width: 100%; 
+    background: var(--transparent-header-bg); 
+    backdrop-filter: blur(8px); z-index: 1000; 
+    color: var(--highlight-text-on-dark); box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.header-container { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; max-width: 1200px; margin: 0 auto; }
+.logo { display: flex; align-items: center; flex-shrink: 0; }
+.logo img { width: 45px; height: auto; margin-right: 8px; filter: brightness(0) invert(1); }
+.titulo-principal { font-size: 1.5em; color: var(--highlight-text-on-dark); margin-bottom: 0; font-family: 'Arial', sans-serif; text-shadow: none; white-space: nowrap;} 
+.menu ul { display: flex; gap: 15px; padding: 0; margin:0; }
+.menu ul li a { display: block; padding: 8px 12px; color: var(--highlight-text-on-dark); font-size: 1em; transition: background 0.3s ease, color 0.3s ease; border-radius: 5px; font-weight: 500; white-space: nowrap;}
+.menu ul li a:hover, .menu ul li a.active-link { background: rgba(255, 255, 255, 0.15); color: var(--accent-bright-yellow); }
+.menu-toggle { display: none; background: none; border: none; font-size: 2.2em; color: var(--highlight-text-on-dark); cursor: pointer; padding: 5px;}
+
+.banner-tutoriales {
+    position: relative; width: 100%; height: 400px; 
+    overflow: hidden; display: flex; align-items: center;
+    justify-content: center; text-align: center;
+}
+.banner-tutoriales img { 
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 1;
+    filter: brightness(0.7) contrast(1.1); 
+}
+.banner-texto {
+    position: relative; z-index: 2; color: var(--white);
+    padding: 20px; background-color: rgba(0,0,0,0.3); 
+    border-radius: 8px;
+}
+.banner-texto h1 {
+    font-size: 3em; color: var(--white);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 0.3em;
+}
+.banner-texto p {
+    font-size: 1.3em; color: var(--highlight-text-on-dark);
+    max-width: 600px; margin: 0 auto;
+}
+
+.contenido-tutoriales {
+    padding: 40px 30px; background: var(--cin-bg-content); 
+    max-width: 1200px; margin: 30px auto; 
+    border-radius: 15px; box-shadow: 0 8px 25px rgba(74, 59, 49, 0.1);
+}
+
+.introduccion-tutoriales, .introduccion-playlists {
+    text-align: center; margin-bottom: 30px;
+}
+.introduccion-tutoriales h2, .introduccion-playlists h2 {
+    font-size: 2.4em; color: var(--cin-heading); margin-bottom: 0.5em;
+}
+.introduccion-tutoriales p, .introduccion-playlists p {
+    font-size: 1.15em; color: var(--cin-text-main); line-height: 1.7;
+    max-width: 750px; margin: 0 auto 20px auto;
+}
+
+.separador-tutoriales {
+    border: none; height: 2px;
+    background: linear-gradient(to right, var(--accent-flame-red), var(--accent-bright-yellow));
+    margin: 60px auto; width: 70%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+
+.grid-videos, .grid-playlists {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.tarjeta-video, .tarjeta-playlist {
+    background-color: var(--white); border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(74, 59, 49, 0.08);
+    overflow: hidden; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; flex-direction: column;
+    cursor: pointer; 
+    position: relative; 
+}
+.tarjeta-video:hover, .tarjeta-playlist:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(74, 59, 49, 0.12);
+}
+
+.video-embed-container, .playlist-embed-container {
+    position: relative; padding-bottom: 56.25%; 
+    height: 0; overflow: hidden; width: 100%;
+}
+.video-embed-container iframe, .playlist-embed-container iframe {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; border: none; 
+}
+
+.info-video, .info-playlist {
+    padding: 20px; flex-grow: 1; 
+}
+.info-video h3, .info-playlist h3 {
+    font-size: 1.3em; margin-bottom: 8px;
+    color: var(--accent-flame-red);
+}
+.canal-video, .canal-playlist {
+    font-size: 0.9em; color: var(--cin-text-main);
+    font-style: italic; margin-bottom: 10px;
+}
+.descripcion-corta-video, .descripcion-corta-playlist {
+    font-size: 0.95em; color: var(--cin-text-main);
+    line-height: 1.6;
+}
+
+
+.dialogo-personaje-flotante.tutoriales-dialogo {
+    position: absolute; width: 300px; 
+    background-color: var(--cin-bg-content);    
+    border: 2px solid var(--cin-heading);        
+    border-radius: 12px; 
+    box-shadow: 0 6px 18px rgba(74, 59, 49, 0.2); 
+    display: flex; align-items: flex-start;
+    padding: 15px; padding-right: 70px; 
+    z-index: 1002; opacity: 0;
+    transform: scale(0.8) translateY(10px);
+    transition: opacity 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), top 0.2s ease-out, left 0.2s ease-out; 
+    pointer-events: none; 
+}
+.dialogo-personaje-flotante.tutoriales-dialogo.visible {
+    opacity: 1; transform: scale(1) translateY(0);
+    pointer-events: auto; 
+}
+.tutoriales-dialogo .dialogo-contenido { flex-grow: 1; margin-right: 8px; }
+.tutoriales-dialogo .texto-dialogo { 
+    font-family: 'Verdana', sans-serif; font-size: 0.95em; 
+    color: var(--cin-text-main); line-height: 1.5; 
+    min-height: 2.8em; white-space: pre-wrap; text-align: left; 
+}
+.tutoriales-dialogo .texto-dialogo::after { 
+    content: '|'; display: inline-block; animation: blink-caret 0.75s step-end infinite;
+    margin-left: 2px; opacity: 1; color: var(--accent-flame-red); 
+}
+.tutoriales-dialogo .texto-dialogo.escritura-completa::after { opacity: 0; animation: none; }
+@keyframes blink-caret { from, to { opacity: 0 } 50% { opacity: 1 } } 
+
+.tutoriales-avatar {
+    position: absolute; top: -15px; right: -20px; 
+    width: 75px; height: 75px; border-radius: 50%;
+    background-color: var(--cin-bg-main); 
+    border: 3px solid var(--accent-flame-red);      
+    overflow: hidden; box-shadow: 0 3px 8px rgba(74,59,49,0.15); 
+    display: flex; align-items: center; justify-content: center;
+    animation: avatar-bounce-subtle 3s ease-in-out infinite; 
+}
+@keyframes avatar-bounce-subtle { 
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    20% { transform: translateY(-3px) rotate(-2deg); }
+    40% { transform: translateY(0) rotate(0deg); }
+    60% { transform: translateY(-3px) rotate(2deg); }
+    80% { transform: translateY(0) rotate(0deg); }
+}
+.tutoriales-avatar .avatar-img { width: 100%; height: 100%; object-fit: cover; }
+
+
+footer { 
+    background: var(--cin-heading); color: var(--highlight-text-on-dark); 
+    text-align: center; padding: 25px 20px; font-size: 1em; 
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1); margin-top: 50px;
+    position: relative; z-index: 10;
+}
+footer p { margin-bottom: 10px; line-height: 1.5; }
+.redes-sociales { margin-top: 15px; }
+.redes-sociales a { 
+    color: var(--highlight-text-on-dark); font-size: 1.6em; margin: 0 12px; 
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+.redes-sociales a:hover { transform: scale(1.25); color: var(--accent-bright-yellow); }
+.contact-form-trigger-btn { 
+    display: inline-flex; align-items: center; background-color: var(--accent-flame-red);
+    color: var(--highlight-text-on-dark); padding: 10px 20px; border: none;
+    border-radius: 25px; font-size: 1em; font-weight: bold; cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; margin-top: 20px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.contact-form-trigger-btn:hover { background-color: var(--cin-heading); transform: translateY(-2px); }
+.contact-form-trigger-btn i { margin-right: 8px; }
+
+
+.contact-modal { display: none; position: fixed; z-index: 1050; left: 0; top: 0; width: 100%; height: 100%; overflow-y: auto; background-color: rgba(0, 0, 0, 0.75); padding: 30px 15px; }
+.contact-modal.visible { display: flex; align-items: center; justify-content: center; }
+.contact-modal-content { background-color: #FFFFFF; color: #333333; margin: auto; padding: 30px 35px; border: 1px solid #DDD; border-radius: 10px; width: 100%; max-width: 520px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); position: relative; text-align: left; }
+.contact-modal-content h2 { text-align: center; color: #333; margin-top: 0; margin-bottom: 15px; font-size: 1.8em; font-family: 'Arial', sans-serif; font-weight: 600; text-shadow: none; }
+.contact-modal-content p { text-align: center; margin-bottom: 25px; font-size: 1em; color: #555; line-height: 1.6; }
+.close-contact-modal { color: #777; position: absolute; top: 15px; right: 20px; font-size: 28px; font-weight: bold; transition: color 0.3s ease; }
+.close-contact-modal:hover, .close-contact-modal:focus { color: #000000; text-decoration: none; cursor: pointer; }
+#contact-form .form-group { margin-bottom: 18px; }
+#contact-form label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9em; color: #444; }
+#contact-form .form-control { width: 100%; padding: 10px 14px; border: 1px solid #CCCCCC; border-radius: 5px; background-color: #FDFDFD; color: #333333; font-size: 1em; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+#contact-form .form-control:focus { border-color: #5E8CC8; box-shadow: 0 0 0 0.15rem rgba(94, 140, 200, 0.25); outline: none; }
+#contact-form textarea.form-control { resize: vertical; min-height: 100px; }
+#contact-form .email-validation-error { font-size: 0.8em; margin-top: 4px; color: #D32F2F; }
+#contact-form .char-counter { display: block; text-align: right; font-size: 0.75em; color: #666; margin-top: 4px; }
+#contact-form .submit-contact-btn { display: block; width: 100%; padding: 12px 20px; background-color: #4A5568; color: #FFFFFF; border: none; border-radius: 25px; font-size: 1.05em; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease, transform 0.2s ease; margin-top: 15px; }
+#contact-form .submit-contact-btn:hover { background-color: #2D3748; transform: translateY(-2px); }
+
+
+@media (max-width: 992px) {
+    body { padding-top: 68px; }
+    h1 { font-size: 2.3em; } h2 { font-size: 1.8em; }
+    .header-container { padding: 8px 15px; } 
+    .titulo-principal { font-size: 1.4em; } 
+    .menu ul { gap: 12px; } 
+    .menu ul li a { padding: 8px 10px; font-size: 0.95em; } 
+    .banner-tutoriales { height: 350px; }
+    .banner-texto h1 { font-size: 2.5em;}
+    .banner-texto p { font-size: 1.2em;}
+    .contenido-tutoriales { padding: 30px 20px; max-width: 95%; }
+    .introduccion-tutoriales h2, .introduccion-playlists h2 { font-size: 2em; }
+    .grid-videos, .grid-playlists { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+}
+
+@media (max-width: 768px) {
+    body { padding-top: 60px; }
+    h1 { font-size: 2em; } h2 { font-size: 1.7em; }
+    .banner-tutoriales { height: 300px; margin-top: 0; }
+    .banner-texto h1 { font-size: 2.2em;}
+    .banner-texto p { font-size: 1.1em;}
+    .header-container { padding: 6px 15px; flex-wrap: wrap;} 
+    .logo img { width: 40px; }
+    .titulo-principal { font-size: 1.3em; margin-right: auto;} 
+    .menu-toggle { display: block; order: 3; margin-left: 10px;}
+    .menu { display: none; flex-direction: column; width: 100%; background: var(--transparent-header-bg); position: absolute; top: 100%; left: 0; box-shadow: 0 3px 5px rgba(0,0,0,0.1);}
+    .menu.active { display: flex; }
+    .menu ul { flex-direction: column; width: 100%; align-items: stretch; padding: 0; gap: 0; }
+    .menu ul li { width: 100%; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); }
+    .menu ul li:first-child { border-top: none; }
+    .menu ul li a { padding: 15px; font-size: 1.1em; width: 100%; border-radius: 0; }
+    .menu ul li a:hover { background: rgba(255, 255, 255, 0.15); }
+    
+    .contenido-tutoriales { padding: 25px 15px; }
+    .introduccion-tutoriales h2, .introduccion-playlists h2 { font-size: 1.8em; }
+    .grid-videos, .grid-playlists { grid-template-columns: 1fr; gap: 20px; } 
+    .info-video h3, .info-playlist h3 { font-size: 1.2em; }
+
+    .dialogo-personaje-flotante.tutoriales-dialogo {
+        position: fixed !important; bottom: 10px; left: 10px; right: 10px;
+        width: auto; max-width: calc(100vw - 20px); transform: translateY(20px) scale(1);
+        padding: 12px; padding-right: 60px; 
+    }
+    .dialogo-personaje-flotante.tutoriales-dialogo.visible { transform: translateY(0) scale(1); }
+    .tutoriales-dialogo .texto-dialogo { font-size: 0.9em; }
+    .tutoriales-avatar { width: 60px; height: 60px; top: -15px; right: -15px; }
+    
+    footer { padding: 20px 15px; font-size: 0.9em; }
+    .contact-modal-content { padding: 25px 20px; margin: 20px 10px; }
+    .contact-modal-content h2 { font-size: 1.6em; }
+    #contact-form .form-control { padding: 9px 10px; font-size: 0.9em; }
+    #contact-form .submit-contact-btn { font-size: 1em; padding: 10px 18px; }
+}
+
+@media (max-width: 480px) {
+    body { padding-top: 56px; }
+    h1 { font-size: 1.8em; } h2 { font-size: 1.5em; }
+    .banner-tutoriales { height: 250px; }
+    .banner-texto h1 { font-size: 1.8em;}
+    .banner-texto p { font-size: 1em;}
+    .header-container { padding: 5px 10px; }
+    .logo img { width: 35px; margin-right: 6px;}
+    .titulo-principal { font-size: 1.2em; }
+    .menu-toggle { font-size: 2em; }
+    .menu ul li a { padding: 12px; }
+
+    .contenido-tutoriales { padding: 20px 10px; }
+    .introduccion-tutoriales h2, .introduccion-playlists h2 { font-size: 1.6em; }
+    .tarjeta-video, .tarjeta-playlist { margin-bottom: 20px; }
+    .info-video h3, .info-playlist h3 { font-size: 1.1em; }
+    .descripcion-corta-video, .descripcion-corta-playlist { font-size: 0.9em;}
+
+    .tutoriales-avatar { width: 50px; height: 50px; top: -10px; right: -10px; }
+    footer { padding: 15px 10px; font-size: 0.85em;}
+}
