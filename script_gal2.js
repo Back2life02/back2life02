@@ -1,4 +1,4 @@
-// script_gal2.js
+
 document.addEventListener('DOMContentLoaded', () => {
   const dialogoBox = document.getElementById('gatoh');
   const textoElemento = document.getElementById('texto-dialogo');
@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const dialogosPorImagen = {
-    "inspo1": "De mis primeras practicas de dibujo y por lo tanto las mas feas jskjsk (2019)",
-    "inspo2": "Mi primer dibujo digital, como puedes ver, los colores estan... raros (2020)",
-    "inspo3": "Meow, intente dibujar a uno de mis pokemones favoritos aqui, igual fue un regalo para una amiga (2021)",
-    "inspo4": "Un art trade que tube y me gusto mucho (2021)",
-    "inspo5": "De mis mejores dibujos hasta la fecha, puedes ver lo mucho que amo dibujar a cinderace (2022)",
-    "inspo6": "Amo el coloreado de este, sigue una mini historia de otro dibujo mio (2023)",
-    "inspo7": "Me gusta pensar que son pareja jskjsk (2025)", 
-    "inspo8": "Un regalo a un streamer que vi, me gusto mucho su avatar (2025)",
-    "inspo9": "Mi mejor dibujo hasta la fecha y el primero con gran inpacto en las redes sociales (2025)",
+    "inspo1": "De mis primeras prácticas de dibujo y, por lo tanto, las más feas, jskjsk (2019).",
+    "inspo2": "Mi primer dibujo digital, como puedes ver, los colores están... raros (2020).",
+    "inspo3": "Miau, intenté dibujar a uno de mis Pokémon favoritos aquí, igual fue un regalo para una amiga (2021).",
+    "inspo4": "Un art trade que tuve y me gustó mucho (2021).",
+    "inspo5": "De mis mejores dibujos hasta la fecha, puedes ver lo mucho que amo dibujar a Cinderace (2022).",
+    "inspo6": "Amo el coloreado de este, sigue una minihistoria de otro dibujo mío (2023).",
+    "inspo7": "Me gusta pensar que son pareja, jskjsk (2025).", 
+    "inspo8": "Un regalo a un streamer que vi, me gustó mucho su avatar (2025).",
+    "inspo9": "Mi mejor dibujo hasta la fecha y el primero con gran impacto en las redes sociales (2025)."
   };
 
   const velocidadEscritura = 50; 

@@ -8,14 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const dialogosPorElemento = {
-
-    "video1": "Muy buen tutorial para principiantes, no sabia que ver igual es practicar",
-    "video2": "Tutorial basico de color",
-    "playlist1": "Aqui acomode los tutoriales mas adecuados para principiantes, te enseña los basicos",
-    "playlist2": "Si te sientes más comodo con tu arte, intenta los tutoriales aqui, sirven mucho para establecer mejor tus bases",
-    "playlist3": "Algo mas dificil y solo para avanzados, sirve para mejorar tu arte aun mas",
-    "playlist4": "Extras que no supe ordenar",
-  
+    "video1": "Muy buen tutorial para principiantes, no sabía que ver igual es practicar.",
+    "video2": "Tutorial básico de color.",
+    "playlist1": "Aquí acomodé los tutoriales más adecuados para principiantes, te enseña lo básico.",
+    "playlist2": "Si te sientes más cómodo con tu arte, intenta los tutoriales aquí, sirven mucho para establecer mejor tus bases.",
+    "playlist3": "Algo más difícil y solo para avanzados, sirve para mejorar tu arte aún más.",
+    "playlist4": "Extras que no supe ordenar."
   };
 
   const velocidadEscritura = 45; 

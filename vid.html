@@ -6,6 +6,7 @@
   <title>Comisiones</title> 
   <link rel="stylesheet" href="vid.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID¤cy=USD"></script>
 </head>
 <body>
 
@@ -35,8 +36,8 @@
 <section class="contenido-comisiones">
 
   <div class="introduccion-comisiones">
-    <h1>información de comisiones</h1>
-    <p>Aqui mostrare mis precios, terminos y condiciones, y el tipo de comisiones que hago, agradezco tu interes en comisionarme.</p>
+    <h1>Información de comisiones</h1>
+    <p>Aquí mostraré mis precios, términos y condiciones, y el tipo de comisiones que hago. Agradezco tu interés en comisionarme.</p>
     <div class="paypal-info">
         <i class="fab fa-paypal"></i>
         <span>Pagos solo por PayPal.</span>
@@ -47,14 +48,40 @@
 
   <section class="seccion-precios">
     <h2>Precios y Ejemplos (solo Headshots)</h2>
-    <p>Los precios están en USD para mas comodidad y pueden variar ligeramente dependiendo de la complejidad del personaje o detalles adicionales.</p>
+    <p>Los precios están en USD para más comodidad y pueden variar ligeramente dependiendo de la complejidad del personaje o detalles adicionales.</p>
     <div class="imagen-info-comisiones">
         <img src="comm2.png" alt="comms">
+    </div>
+
+    <div class="comisiones-grid">
+
+        <div class="tarjeta-comision">
+            <h3>Headshot - Sketch</h3>
+            <p class="precio-comision">$15 USD</p>
+            <p class="descripcion-comision">Un boceto limpio de la cabeza y hombros de tu personaje.</p>
+            <div id="paypal-button-container-sketch"></div>
+        </div>
+
+     
+        <div class="tarjeta-comision">
+            <h3>Headshot - Flat Color</h3>
+            <p class="precio-comision">$20 USD</p>
+            <p class="descripcion-comision">Lineart limpio con colores base sólidos.</p>
+            <div id="paypal-button-container-flatcolor"></div>
+        </div>
+
+  
+        <div class="tarjeta-comision">
+            <h3>Headshot - Rendered</h3>
+            <p class="precio-comision">$25 USD</p>
+            <p class="descripcion-comision">Lineart limpio, colores base, sombreado detallado y luces para un acabado pulido.</p>
+            <div id="paypal-button-container-rendered"></div>
+        </div>
     </div>
     <ul class="notas-precios">
         <li>Los precios pueden variar según la complejidad.</li>
         <li>El pago debe realizarse por adelantado.</li>
-        <li>Solo PayPal, intentar pagar por otro metodo terminara en bloqueo</li>
+        <li>Solo PayPal, intentar pagar por otro método terminará en bloqueo.</li>
     </ul>
   </section>
 
@@ -62,7 +89,7 @@
 
   <section class="seccion-reglas-tos">
     <h2>Reglas Generales y Términos de Servicio</h2>
-    <p>Por favor, lee atentamente mis reglas y términos antes de solicitar una comisión. Al comisionarme, aceptas automáticamente estos términos. El incumplimiento de las reglas terminara en bloqueo.</p>
+    <p>Por favor, lee atentamente mis reglas y términos antes de solicitar una comisión. Al comisionarme, aceptas automáticamente estos términos. El incumplimiento de las reglas terminará en bloqueo.</p>
     <div class="imagen-info-comisiones">
         <img src="comm1.png" alt="tos">
     </div>
@@ -72,16 +99,16 @@
 
   <section class="como-comisionar">
     <h2>Proceso para comisionarme</h2>
-    <p>Para solicitar una comisión, por favor contáctame a través de Twitter, Discord o bluesky.</p>
+    <p>Para solicitar una comisión, por favor contáctame a través de Twitter, Discord o Bluesky.</p>
     <p>Asegúrate de incluir la siguiente información al contactarme:</p>
     <ul>
         <li><i class="fas fa-check"></i> Tipo de comisión deseada.</li>
-        <li><i class="fas fa-check"></i> Referencia de tu fursona o oc.</li>
+        <li><i class="fas fa-check"></i> Referencia de tu fursona u OC.</li>
         <li><i class="fas fa-check"></i> Detalles de la pose y expresión.</li>
         <li><i class="fas fa-check"></i> Detalles del atuendo.</li>
         <li><i class="fas fa-check"></i> Especificaciones extra.</li>
     </ul>
-    <p>Gracias por leer</p>
+    <p>Gracias por leer.</p>
     <div class="redes-contacto-comisiones">
         <a href="https://x.com/Hikikocat_02" target="_blank" class="contacto-btn twitter-btn"><i class="fab fa-x-twitter"></i> Contactar por Twitter</a>
         <span class="contacto-discord"><i class="fab fa-discord"></i> Discord: cataclysm_02</span>
@@ -149,6 +176,68 @@
     menu.classList.toggle('active');
   });
 </script>
+<script>
+  if (typeof paypal !== 'undefined') {
 
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Comisión Headshot Sketch - Hikikocat",
+            amount: { currency_code: "USD", value: "15.00" } 
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('¡Pago por Sketch completado por ' + details.payer.name.given_name + '! Gracias.');
+          console.log('Sketch Order ID:', data.orderID);
+        });
+      }, onError: function(err) { console.error('Error PayPal Sketch:', err); alert('Error en el pago.');}
+    }).render('#paypal-button-container-sketch');
+
+
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Comisión Headshot Flat Color - Hikikocat",
+            amount: { currency_code: "USD", value: "20.00" } 
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('¡Pago por Flat Color completado por ' + details.payer.name.given_name + '! Gracias.');
+          console.log('Flat Color Order ID:', data.orderID);
+        });
+      }, onError: function(err) { console.error('Error PayPal Flat:', err); alert('Error en el pago.');}
+    }).render('#paypal-button-container-flatcolor');
+
+  
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            description: "Comisión Headshot Rendered - Hikikocat",
+            amount: { currency_code: "USD", value: "25.00" } 
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert('¡Pago por Rendered completado por ' + details.payer.name.given_name + '! Gracias.');
+          console.log('Rendered Order ID:', data.orderID);
+        });
+      }, onError: function(err) { console.error('Error PayPal Rendered:', err); alert('Error en el pago.');}
+    }).render('#paypal-button-container-rendered');
+
+  } else {
+    console.error("El SDK de PayPal no se ha cargado.");
+    document.getElementById('paypal-button-container-sketch').innerHTML = "<p style='color:red;'>Error cargando PayPal.</p>";
+    document.getElementById('paypal-button-container-flatcolor').innerHTML = "<p style='color:red;'>Error cargando PayPal.</p>";
+    document.getElementById('paypal-button-container-rendered').innerHTML = "<p style='color:red;'>Error cargando PayPal.</p>";
+  }
+</script>
 </body>
 </html>

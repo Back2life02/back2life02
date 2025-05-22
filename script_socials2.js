@@ -13,15 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
   }
 
-  const dialogosPorImagen = {
-    "ep1": "Inicio primero por el boceto, esta todo feo pero asi se inicia",
-    "ep2": "Luego viene el lineart. Algo que no se por que hago si siempre lo tapo ",
-    "ep3": "Sigo con los colores planos y algo de detale",
-    "ep4": "Despues añado el fondo...",
-    "ep5": "Y integro a los personajes en el fondo",
-    "ep6": "El cambio mas importante! El render!!",
-    "ep7": "Alguna que otra correción de colores...",
-    "ep8": "Efectos adicionales y... listo, asi quedaria el resultado final"
+ const dialogosPorImagen = { 
+    "ep1": "Inicio primero por el boceto, está todo feo, pero así se inicia.",
+    "ep2": "Luego viene el lineart. Algo que no sé por qué hago si siempre lo tapo.",
+    "ep3": "Sigo con los colores planos y algo de detalle.",
+    "ep4": "Después añado el fondo...",
+    "ep5": "E integro a los personajes en el fondo.",
+    "ep6": "¡El cambio más importante! ¡El render!",
+    "ep7": "Alguna que otra corrección de colores...",
+    "ep8": "Efectos adicionales y... listo, así quedaría el resultado final."
   };
 
   const velocidadEscritura = 40; 
