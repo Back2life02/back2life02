@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galería</title>
+  <link rel="stylesheet" href="style_gal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="Logo"></a>
+        <a href="index.html"><h1 class="titulo-principal">Hikikocat inside home ♥</h1></a>
+    </div>
+    <nav class="menu" id="menu">
+      <ul>
+        <li><a href="Socials.html">Proceso creativo</a></li>
+          <li><a href="tutoriales.html">Tutoriales</a></li>
+        <li><a href="audi.html">Acerca de mí</a></li>
+        <li><a href="vid.html">Comisiones</a></li>
+        <li><a href="index.html">Inicio</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </div>
+</header>
+
+<div class="banner">
+  <img src="banner2.jpeg" alt="Banner">
+</div>
+
+<section class="contenido">
+
+  <div class="texto">
+
+    <h1>Mis dibujos cronológicamente</h1>
+    <p>Es hora de hablar de mis dibujos a lo largo del tiempo, cada dibujo tendrá una pequeña explicación por un gato chistoso.</p>
+
+    <hr class="separador">
+    
+  </div>
+  <section class="inspiraciones">
+    <h2>Mis dibujos</h2>
+    <div class="masonry-grid">
+      <div class="dibujoschidos">
+        <img src="rn1.jpeg" alt="Inspiración 1" class="inspo-img lightbox-trigger" data-dialogo-id="inspo1">
+        
+          
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn2.jpeg" alt="Inspiración 2" class="inspo-img lightbox-trigger" data-dialogo-id="inspo2">
+       
+          
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn3.jpeg" alt="Inspiración 3" class="inspo-img lightbox-trigger " data-dialogo-id="inspo3">
+    
+          
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn4.jpeg" alt="Inspiración 4" class="inspo-img lightbox-trigger" data-dialogo-id="inspo4">
+        
+        
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn5.jpeg" alt="Inspiración 5" class="inspo-img lightbox-trigger" data-dialogo-id="inspo5">
+        
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn6.jpeg" alt="Inspiración 6" class="inspo-img lightbox-trigger" data-dialogo-id="inspo6">
+        
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn7.jpeg" alt="Inspiración 7" class="inspo-img lightbox-trigger" data-dialogo-id="inspo7">
+        
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn8.jpeg" alt="Inspiración 8" class="inspo-img lightbox-trigger" data-dialogo-id="inspo8">
+        
+        </a>
+      </div>
+      <div class="dibujoschidos">
+        <img src="rn9.jpeg" alt="Inspiración 9" class="inspo-img lightbox-trigger" data-dialogo-id="inspo9">
+        
+        </a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<footer>
+  <p>Hikikocat. Artista independiente.</p>
+  <p>"Gracias por visitar mi espacio artístico."</p>
+  <div class="redes-sociales">
+    <a href="https://x.com/Hikikocat_02" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://bsky.app/cataclysm01.bsky.social" target="_blank"><i class="fa-solid fa-cloud"></i></a>
+    <a href="https://www.tiktok.com/@cataclysm_02" target="_blank"><i class="fab fa-tiktok"></i></a>
+    <a href="https://www.instagram.com/cataclysm002" target="_blank"><i class="fab fa-instagram"></i></a>
+  </div>
+  <button id="open-contact-form-btn" class="contact-form-trigger-btn">
+    <i class="fas fa-envelope"></i> Envíame un Mensaje
+  </button>
+</footer>
+<div id="contact-form-modal" class="contact-modal">
+  <div class="contact-modal-content">
+    <span class="close-contact-modal" id="close-contact-modal-btn">×</span>
+    <h2>Contáctame</h2>
+    <p>Envíame un mensaje y te responderé lo antes posible.</p>
+    
+    <form id="contact-form" target="_blank" action="https://formsubmit.co/living4maya@gmail.com" method="POST">
+      <div class="form-group">
+        <label for="contact-name">Nombre Completo:</label>
+        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Tu Nombre Completo" required maxlength="100">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-email">Tu Email:</label>
+        <input type="email" id="contact-email" name="email" class="form-control" placeholder="direccion@ejemplo.com" required maxlength="150">
+        <small class="email-validation-error" style="color: red; display: none;">Por favor, introduce un email con formato válido.</small>
+      </div>
+      
+      <div class="form-group">
+        <label for="contact-subject">Asunto:</label> 
+        <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="Asunto del mensaje" required maxlength="150">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-message">Tu Mensaje:</label>
+        <textarea placeholder="Escribe tu mensaje aquí..." class="form-control" id="contact-message" name="message" rows="6" required maxlength="2000"></textarea>
+        <small class="char-counter"><span id="message-char-count">0</span> / 2000 caracteres</small>
+      </div>
+      <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde tu Web!">
+      <input type="hidden" name="_template" value="box"> 
+
+
+      <button type="submit" class="submit-contact-btn">Enviar Mensaje</button>
+    </form>
+  </div>
+</div>
+
+<div id="gatoh" class="gatoh">
+    <div class="dialogo-contenido">
+      <p id="texto-dialogo" class="texto-dialogo"></p>
+    </div>
+    <div class="gatogifb">
+      <img id="avatar-gif" src="gato.gif" alt="Avatar animado" class="dialogo-gato">
+    </div>
+</div>
+<script src="script_gal2.js"></script> 
+<script src="script_gal.js"></script> 
+<script src="email.js"></script> 
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
