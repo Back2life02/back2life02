@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tutoriales y Recursos - Hikikocat</title> 
+  <title>Objetivo</title> 
   <link rel="stylesheet" href="tutoriales.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -12,17 +12,15 @@
 <header>
   <div class="header-container">
     <div class="logo">
-        <a href="index.html"><img src="logo.png" alt="Logo"></a>
-        <a href="index.html"><h1 class="titulo-principal">Hikikocat inside home ♥</h1></a>
+      <img src="logo.png" alt="Logo">
+      <h1 class="titulo-principal">Renacer de los resudios</h1>
     </div>
     <nav class="menu" id="menu">
       <ul>
-        <li><a href="Socials.html">Proceso creativo</a></li>
-        <li><a href="audi.html">Acerca de mí</a></li>
-        <li><a href="vid.html">Comisiones</a></li>
-        <li><a href="gal.html">Galería</a></li>
-        <li><a href="index.html">Inicio</a></li>
-       
+        <li><a href="informacion.html">Sobre nosotros</a></li>
+        <li><a href="objetivo.html">Objetivo</a></li>
+        <li><a href="estadisticas.html">Estadisticas</a></li>
+        <li><a href="problematicas.html">Problematica</a></li>
       </ul>
     </nav>
     <button class="menu-toggle" id="menu-toggle">☰</button>
@@ -32,12 +30,10 @@
 <div class="banner-tutoriales"> 
   <img src="banner6.jpeg" alt="Banner Tutoriales de Dibujo"> 
   <div class="banner-texto">
-    <h1>Los tutoriales que sigo</h1>
-    <p>Apartado por si quieres aprender un poco más de cómo aprendí.</p>
   </div>
 </div>
 
-<section class="contenido-tutoriales">
+<!-- <section class="contenido-tutoriales">
 
   <div class="introduccion-tutoriales">
     <h2>Los mejores tutos que encontré</h2>
@@ -115,7 +111,7 @@
   </div>
 
 </section>
-
+ -->
 <footer>
 
   <p>Hikikocat. Artista independiente.</p>
@@ -130,39 +126,6 @@
     <i class="fas fa-envelope"></i> Envíame un Mensaje
   </button>
 </footer>
-
-
-<div id="contact-form-modal" class="contact-modal">
-  <div class="contact-modal-content">
-    <span class="close-contact-modal" id="close-contact-modal-btn">×</span>
-    <h2>Contáctame</h2>
-    <p>Envíame un mensaje y te responderé lo antes posible.</p>
-    <form id="contact-form" target="_blank" action="https://formsubmit.co/living4maya@gmail.com" method="POST">
-      <div class="form-group">
-        <label for="contact-name">Nombre Completo:</label>
-        <input type="text" id="contact-name" name="name" class="form-control" placeholder="Tu Nombre Completo" required maxlength="100">
-      </div>
-      <div class="form-group">
-        <label for="contact-email">Tu Email:</label>
-        <input type="email" id="contact-email" name="email" class="form-control" placeholder="direccion@ejemplo.com" required maxlength="150">
-        <small class="email-validation-error" style="color: red; display: none;">Por favor, introduce un email con formato válido.</small>
-      </div>
-      <div class="form-group">
-        <label for="contact-subject">Asunto:</label> 
-        <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="Asunto del mensaje" required maxlength="150">
-      </div>
-      <div class="form-group">
-        <label for="contact-message">Tu Mensaje:</label>
-        <textarea placeholder="Escribe tu mensaje aquí..." class="form-control" id="contact-message" name="message" rows="6" required maxlength="2000"></textarea>
-        <small class="char-counter"><span id="message-char-count">0</span> / 2000 caracteres</small>
-      </div>
-      <input type="hidden" name="_subject" value="Nuevo Mensaje de Contacto desde tu Web!">
-      <input type="hidden" name="_template" value="box"> 
-      <button type="submit" class="submit-contact-btn">Enviar Mensaje</button>
-    </form>
-  </div>
-</div>
-
 <div id="dialogo-tutoriales" class="dialogo-personaje-flotante tutoriales-dialogo"> 
     <div class="dialogo-contenido">
       <p id="texto-dialogo-tutoriales" class="texto-dialogo"></p>
