@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objetivo</title> 
+  <link rel="stylesheet" href="objetivo.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+      <h1 class="titulo-principal"><a href="index.html">Renacer de los resudios</a></h1>
+    </div>
+    <nav class="menu" id="menu">
+      <ul>
+        <li><a href="objetivo.html">Objetivo</a></li>
+        <li><a href="estadisticas.html">Estadisticas</a></li>
+        <li><a href="problematicas.html">Problematica</a></li>
+      </ul>
+    </nav>
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+  </div>
+</header>
+
+<div class="banner-tutoriales"> 
+  <img src="banner.png" alt="Banner Sobre Mí">
+</div>
+
+<section class="contenido-tutoriales">
+
+  <div class="introduccion-tutoriales">
+    <h2>Objetivo</h2>
+    <p>Concientizar y educar a los jóvenes de la comunidad sobre la separación adecuada de residuos mediante un sitio web intuitivo e informativo para ayudar a la reducción de la huella ecológica.</p>
+  </div>
+
+  <div class="grid-videos">
+    
+    <article class="tarjeta-video">
+      <div class="video-embed-container">
+        <img src="universitarios.jpeg" alt="justificacion">
+      </div>
+      <div class="info-video">
+        <h3>Publico objetivo</h3>
+        <p class="canal-video">La página web estará dirigida a estudiantes universitarios y jóvenes de la comunidad.
+        El lenguaje será claro, directo, visual e informal para mantener el interés de este grupo de edad y motivar acciones concretas de cambio.
+        </p>
+      </div>
+    </article>
+
+    <article class="tarjeta-video">
+      <div class="video-embed-container">
+        <img src="justificacion.jpeg" alt="justificacion">
+      </div>
+      <div class="info-video">
+        <h3>Justificación</h3>
+        <p class="canal-video">La acumulación inadecuada de residuos sólidos representa un problema ambiental grave que impacta la salud pública y los ecosistemas locales. 
+        Se eligió el tema porque existe un desconocimiento generalizado sobre cómo clasificar y reducir la basura en la vida cotidiana.
+        </p>
+      </div>
+    </article>
+  </div>
+  </div>
+
+</section>
+
+<footer>
+  <p>Referencias</p>
+  <p><a href="https://www.un.org/es" target="_blank">Organización de las Naciones Unidas (ONU)</a></p>
+  <p><p><a href="https://datatopics.worldbank.org/what-a-waste/" target="_blank">What a Waste 3.0: Global Snapshot of Solid Waste Management.</a></p>
+  <p><a href="https://www.epa.gov/recycle/recycling-basics-and-benefits" target="_blank">Recycling Basics and Benefits (Actualizado en 2026).</a></p>
+  <p><a href="https://ellenmacarthurfoundation.org/topics/circular-economy-introduction/overview" target="_blank">The Circular Economy Framework.</a></p>
+  <p><a href="https://agenda2030.mx/SIODS/" target="_blank">Sistema de Información de los Objetivos de Desarrollo Sostenible (SIODS).</a></p>
+  <p><a href="https://www.unep.org/es" target="_blank">Guias de Sostenibilidad y Conservación de Ecosistemas.</a></p>
+
+</footer>
+<script src="objetivo.js"></script> 
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
